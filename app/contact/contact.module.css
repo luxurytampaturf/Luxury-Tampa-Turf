@@ -212,3 +212,60 @@
     padding: 60px 20px;
   }
 }
+
+/* ─── MOBILE / TABLET OPTIMIZATIONS ─── */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 280px;
+  }
+
+  .heroContent {
+    padding: 50px 20px 70px;
+  }
+
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .heroContent p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Form comes FIRST on mobile/tablet */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .info {
+    order: 2;
+  }
+
+  /* ContactForm wrapper gets order 1 via its parent */
+  .layout > :last-child {
+    order: 1;
+  }
+
+  .contactSection {
+    padding: 50px 20px;
+  }
+
+  .floridaImg {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoCard {
+    gap: 14px;
+    padding: 18px 0;
+  }
+
+  .infoIcon {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+}

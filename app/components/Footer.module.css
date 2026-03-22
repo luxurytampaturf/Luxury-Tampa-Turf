@@ -139,3 +139,30 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── MOBILE OPTIMIZATIONS ─── */
+@media (max-width: 480px) {
+  .footer {
+    padding: 50px 16px 30px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .logoRow {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+  }
+
+  .col p,
+  .col a {
+    font-size: 0.85rem;
+  }
+
+  .bottom {
+    font-size: 0.72rem;
+    gap: 8px;
+  }
+}

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   },
   description:
     'Premium artificial turf and paver installation in Tampa, FL. Get a free quote with our proprietary real-time visualization software.',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 }
 
 export default function RootLayout({

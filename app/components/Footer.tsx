@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
           <div className={styles.col}>
             <h4 className={styles.colHead}>Contact</h4>
-            <a href="tel:8137932623">📞 (813) 793-2623</a>
+            <a href="tel:8136932623">📞 (813) 693-2623</a>
             <p className={styles.muted}>Call or Text — 7 Days a Week</p>
             <a href="mailto:luxurytampaturf@gmail.com">✉️ luxurytampaturf@gmail.com</a>
           </div>

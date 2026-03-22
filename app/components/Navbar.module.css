@@ -96,3 +96,20 @@
     font-size: 0.72rem;
   }
 }
+
+/* ─── MOBILE OPTIMIZATIONS ─── */
+@media (max-width: 480px) {
+  .nav {
+    padding: 0 16px;
+    height: 62px;
+  }
+
+  .links {
+    gap: 16px;
+  }
+
+  .link {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+}

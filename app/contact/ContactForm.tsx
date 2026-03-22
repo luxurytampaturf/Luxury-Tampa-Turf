@@ -53,10 +53,10 @@ export default function ContactForm() {
       if (data.success) {
         setSubmitted(true)
       } else {
-        setErrors(['Something went wrong. Please try again or call us at (813) 793-2623.'])
+        setErrors(['Something went wrong. Please try again or call us at (813) 693-2623.'])
       }
     } catch {
-      setErrors(['Network error. Please try again or call us at (813) 793-2623.'])
+      setErrors(['Network error. Please try again or call us at (813) 693-2623.'])
     } finally {
       setLoading(false)
     }
@@ -78,7 +78,7 @@ export default function ContactForm() {
           </p>
           <p className={styles.successSub}>
             Questions in the meantime? Call or text us at{' '}
-            <a href="tel:8137932623">(813) 793-2623</a>
+            <a href="tel:8136932623">(813) 693-2623</a>
           </p>
         </div>
       </div>

@@ -437,3 +437,81 @@
     order: 1;
   }
 }
+
+/* ─── MOBILE / TABLET OPTIMIZATIONS ─── */
+@media (max-width: 900px) {
+  .hero {
+    min-height: 260px;
+  }
+
+  .heroContent {
+    padding: 50px 20px 80px;
+  }
+
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Photo FIRST on mobile */
+  .foundersGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .foundersPhoto {
+    order: 1;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .foundersText {
+    order: 2;
+  }
+
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .valuesCols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .missionSection,
+  .valuesSection,
+  .foundersSection {
+    padding: 60px 20px;
+  }
+
+  .callout {
+    padding: 60px 20px;
+  }
+
+  .callout blockquote {
+    font-size: 1.3rem;
+  }
+
+  .cta {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 1.9rem;
+  }
+
+  .heroContent p {
+    font-size: 0.92rem;
+  }
+
+  .valuesCol {
+    padding: 28px 22px;
+  }
+
+  .foundersSection {
+    padding: 50px 16px;
+  }
+}

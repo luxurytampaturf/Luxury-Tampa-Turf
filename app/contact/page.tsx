@@ -45,7 +45,7 @@ export default function ContactPage() {
                 <div className={styles.infoIcon}>📞</div>
                 <div>
                   <strong>Phone / Text</strong>
-                  <a href="tel:8137932623">(813) 793-2623</a>
+                  <a href="tel:8136932623">(813) 693-2623</a>
                   <span>Call or Text — 7 Days a Week</span>
                 </div>
               </div>
