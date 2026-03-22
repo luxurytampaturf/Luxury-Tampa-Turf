@@ -1,0 +1,172 @@
+.hero {
+  padding-top: 76px;
+  background: var(--black);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 60px 48px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.heroContent h1 { color: var(--white); margin-bottom: 16px; }
+.heroContent h1 span { color: var(--gold); }
+.heroContent p { color: var(--white-dim); font-size: 1rem; }
+
+.main {
+  background: var(--black-2);
+  padding: 80px 48px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.categoryLabel {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.card {
+  background: var(--black-3);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.card:hover {
+  border-bottom-color: var(--gold);
+  background: var(--black-4);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+.price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.desc {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.bookLink {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color 0.2s;
+  margin-top: 4px;
+}
+
+.bookLink:hover { color: var(--gold-light); }
+
+.btnGold {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  transition: background 0.25s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+}
+
+.btnGold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.cta {
+  padding: 100px 48px;
+  background: var(--black);
+  text-align: center;
+  position: relative;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+}
+
+.cta h2 {
+  color: var(--white);
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.cta h2 span { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .main, .cta { padding: 60px 24px; }
+  .heroContent { padding: 50px 24px; }
+}
+
+@media (max-width: 580px) {
+  .grid { grid-template-columns: 1fr; }
+}

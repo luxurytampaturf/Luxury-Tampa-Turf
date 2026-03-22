@@ -1,0 +1,219 @@
+.wrap {
+  background: linear-gradient(160deg, #f0f7eb 0%, var(--cream) 100%);
+  padding: 48px 44px;
+  box-shadow: var(--shadow-soft);
+  border-radius: 2px;
+  border-top: 3px solid var(--green-bright);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grass texture on form */
+.wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg, transparent, transparent 6px,
+      rgba(46, 107, 46, 0.025) 6px, rgba(46, 107, 46, 0.025) 7px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 6px,
+      rgba(46, 107, 46, 0.025) 6px, rgba(46, 107, 46, 0.025) 7px
+    );
+  pointer-events: none;
+}
+
+.formHead {
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.formHead h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  color: var(--green-deep);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.formHead p {
+  color: var(--text-light);
+  font-size: 0.88rem;
+}
+
+.errorBox {
+  background: #fff3f3;
+  border: 1px solid #e88;
+  color: #c00;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.group label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-field);
+  margin-bottom: 8px;
+}
+
+.group input,
+.group select,
+.group textarea {
+  width: 100%;
+  border: 1.5px solid rgba(46, 107, 46, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 13px 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  appearance: none;
+  border-radius: 1px;
+}
+
+.group input:focus,
+.group select:focus,
+.group textarea:focus {
+  border-color: var(--green-field);
+  box-shadow: 0 0 0 3px rgba(46, 107, 46, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.group textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--green-field), var(--green-light));
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  padding: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(46, 107, 46, 0.35);
+  margin-top: 10px;
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--green-light), var(--green-bright));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submit:hover::before {
+  opacity: 1;
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(46, 107, 46, 0.45);
+}
+
+.submit span {
+  position: relative;
+  z-index: 1;
+}
+
+.formNote {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── SUCCESS ─── */
+.success {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.checkCircle {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--green-forest), var(--green-field));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--green-lime);
+  box-shadow: 0 4px 20px rgba(46, 107, 46, 0.35);
+}
+
+.success h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  color: var(--green-deep);
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.success p {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.successSub {
+  margin-top: 14px !important;
+  font-size: 0.85rem !important;
+  opacity: 0.7;
+}
+
+.successSub a {
+  color: var(--green-field);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    padding: 32px 20px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

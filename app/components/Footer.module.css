@@ -1,0 +1,141 @@
+.footer {
+  background: var(--green-deep);
+  color: rgba(200, 240, 176, 0.65);
+  padding: 70px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grass blade pattern in footer bg */
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      88deg,
+      transparent,
+      transparent 30px,
+      rgba(46, 107, 46, 0.06) 30px,
+      rgba(46, 107, 46, 0.06) 32px
+    ),
+    repeating-linear-gradient(
+      92deg,
+      transparent,
+      transparent 50px,
+      rgba(46, 107, 46, 0.04) 50px,
+      rgba(46, 107, 46, 0.04) 52px
+    );
+  pointer-events: none;
+}
+
+/* Grass top border */
+.footer::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 50' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L0 30 Q6 10 12 25 Q18 38 24 20 Q30 4 36 22 Q42 36 48 24 Q54 10 60 26 Q66 38 72 22 Q78 6 84 24 Q90 38 96 26 Q102 12 108 28 Q114 40 120 24 Q126 8 132 26 Q138 38 144 22 Q150 6 156 24 Q162 38 168 26 Q174 12 180 28 Q186 40 192 24 Q198 8 204 26 Q210 38 216 22 Q222 6 228 24 Q234 38 240 26 Q246 12 252 28 Q258 40 264 24 Q270 8 276 26 Q282 38 288 22 Q294 6 300 24 Q306 38 312 26 Q318 12 324 28 Q330 40 336 24 Q342 8 348 26 Q354 38 360 22 Q366 6 372 24 Q378 38 384 26 Q390 12 396 28 Q402 40 408 24 Q414 8 420 26 Q426 38 432 22 Q438 6 444 24 Q450 38 456 26 Q462 12 468 28 Q474 40 480 24 Q486 8 492 26 Q498 38 504 22 Q510 6 516 24 Q522 38 528 26 Q534 12 540 28 Q546 40 552 24 Q558 8 564 26 Q570 38 576 22 Q582 6 588 24 Q594 38 600 26 Q606 12 612 28 Q618 40 624 24 Q630 8 636 26 Q642 38 648 22 Q654 6 660 24 Q666 38 672 26 Q678 12 684 28 Q690 40 696 24 Q702 8 708 26 Q714 38 720 22 Q726 6 732 24 Q738 38 744 26 Q750 12 756 28 Q762 40 768 24 Q774 8 780 26 Q786 38 792 22 Q798 6 804 24 Q810 38 816 26 Q822 12 828 28 Q834 40 840 24 Q846 8 852 26 Q858 38 864 22 Q870 6 876 24 Q882 38 888 26 Q894 12 900 28 Q906 40 912 24 Q918 8 924 26 Q930 38 936 22 Q942 6 948 24 Q954 38 960 26 Q966 12 972 28 Q978 40 984 24 Q990 8 996 26 Q1002 38 1008 22 Q1014 6 1020 24 Q1026 38 1032 26 Q1038 12 1044 28 Q1050 40 1056 24 Q1062 8 1068 26 Q1074 38 1080 22 Q1086 6 1092 24 Q1098 38 1104 26 Q1110 12 1116 28 Q1122 40 1128 24 Q1134 8 1140 26 Q1146 38 1152 22 Q1158 6 1164 24 Q1170 38 1176 26 Q1182 12 1188 28 Q1194 40 1200 24 L1440 24 L1440 0 Z' fill='%23f8f5ec'/%3E%3C/svg%3E");
+  background-size: 1440px 50px;
+  background-repeat: no-repeat;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.logoRow {
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(93, 189, 78, 0.12);
+  padding-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.colHead {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 14px;
+}
+
+.col p,
+.col a {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: rgba(200, 240, 176, 0.6);
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s;
+}
+
+.col a:hover {
+  color: var(--green-lime);
+}
+
+.muted {
+  font-size: 0.82rem !important;
+  opacity: 0.5;
+  margin-top: 4px !important;
+}
+
+.goldLink {
+  margin-top: 16px !important;
+  color: var(--green-bright) !important;
+}
+
+.goldLink:hover {
+  color: var(--green-lime) !important;
+}
+
+.bottom {
+  border-top: 1px solid rgba(93, 189, 78, 0.1);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(200, 240, 176, 0.3);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 20px 30px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

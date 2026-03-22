@@ -1,0 +1,333 @@
+.sectionInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-field), var(--green-bright));
+  margin: 24px 0;
+  border-radius: 2px;
+}
+
+.dividerCenter {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-field), var(--green-bright));
+  margin: 24px auto;
+  border-radius: 2px;
+}
+
+.btnPrimary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--green-field), var(--green-light));
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(46, 107, 46, 0.35);
+}
+
+.btnPrimary:hover {
+  background: linear-gradient(135deg, var(--green-light), var(--green-bright));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(46, 107, 46, 0.45);
+}
+
+/* ─── HERO ─── */
+.hero {
+  padding-top: 80px;
+  background:
+    linear-gradient(155deg, var(--green-deep) 0%, #0f2a0f 40%, var(--green-forest) 65%, var(--green-mid) 90%, var(--green-field) 100%);
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(93, 189, 78, 0.12) 0%, transparent 70%),
+    repeating-linear-gradient(
+      89deg, transparent, transparent 24px,
+      rgba(93, 189, 78, 0.03) 24px, rgba(93, 189, 78, 0.03) 26px
+    );
+}
+
+/* Grass blades at bottom */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 80 L0 55 Q8 28 16 48 Q24 65 32 40 Q40 16 48 44 Q56 66 64 52 Q72 36 80 30 Q88 22 96 42 Q104 60 112 50 Q120 38 128 28 Q136 16 144 38 Q152 58 160 48 Q168 36 176 26 Q184 14 192 36 Q200 56 208 46 Q216 34 224 24 Q232 12 240 34 Q248 54 256 44 Q264 32 272 22 Q280 10 288 32 Q296 52 304 42 Q312 30 320 20 Q328 8 336 30 Q344 50 352 60 Q360 50 368 36 Q376 20 384 40 Q392 56 400 46 Q408 34 416 24 Q424 12 432 34 Q440 54 448 44 Q456 32 464 22 Q472 10 480 32 Q488 52 496 42 Q504 30 512 20 Q520 8 528 30 Q536 50 544 40 Q552 28 560 18 Q568 6 576 28 Q584 48 592 58 Q600 48 608 34 Q616 18 624 38 Q632 54 640 44 Q648 32 656 22 Q664 10 672 32 Q680 52 688 42 Q696 30 704 20 Q712 8 720 30 Q728 50 736 40 Q744 28 752 18 Q760 6 768 28 Q776 48 784 38 Q792 26 800 16 Q808 4 816 26 Q824 46 832 56 Q840 46 848 32 Q856 16 864 36 Q872 52 880 42 Q888 30 896 20 Q904 8 912 30 Q920 50 928 40 Q936 28 944 18 Q952 6 960 28 Q968 48 976 38 Q984 26 992 16 Q1000 4 1008 26 Q1016 46 1024 36 Q1032 24 1040 14 Q1048 2 1056 24 Q1064 44 1072 54 Q1080 44 1088 30 Q1096 14 1104 34 Q1112 50 1120 40 Q1128 28 1136 18 Q1144 6 1152 28 Q1160 48 1168 38 Q1176 26 1184 16 Q1192 4 1200 26 L1440 26 L1440 80 Z' fill='%23f8f5ec'/%3E%3C/svg%3E");
+  background-size: 1440px 80px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px 100px;
+}
+
+.heroContent h1 {
+  color: #fff;
+  margin-bottom: 18px;
+  animation: fadeUp 0.7s ease both;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.heroContent p {
+  color: rgba(200, 240, 176, 0.78);
+  font-size: 1.05rem;
+  max-width: 520px;
+  animation: fadeUp 0.7s ease 0.15s both;
+}
+
+/* ─── MISSION ─── */
+.missionSection {
+  padding: 90px 40px;
+  background: var(--warm-white);
+  position: relative;
+}
+
+.missionSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      88deg, transparent, transparent 20px,
+      rgba(46, 107, 46, 0.02) 20px, rgba(46, 107, 46, 0.02) 22px
+    );
+  pointer-events: none;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.missionGrid h2 {
+  color: var(--green-deep);
+  margin-bottom: 14px;
+}
+
+.missionGrid p {
+  color: var(--text-mid);
+  font-size: 0.98rem;
+  margin-bottom: 16px;
+  line-height: 1.85;
+}
+
+/* ─── CALLOUT ─── */
+.callout {
+  background: linear-gradient(135deg, var(--green-deep) 0%, #0f2a0f 40%, var(--green-forest) 80%);
+  padding: 90px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.callout::before {
+  content: '\201C';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28rem;
+  color: rgba(93, 189, 78, 0.05);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Subtle grass texture */
+.callout::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      89deg, transparent, transparent 30px,
+      rgba(93, 189, 78, 0.04) 30px, rgba(93, 189, 78, 0.04) 32px
+    );
+  pointer-events: none;
+}
+
+.callout blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 780px;
+  margin: 0 auto 28px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+.callout cite {
+  color: var(--green-bright);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── VALUES ─── */
+.valuesSection {
+  padding: 90px 40px;
+  background: linear-gradient(180deg, #ebf4e4 0%, var(--cream) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Turf grid pattern */
+.valuesSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg, transparent, transparent 8px,
+      rgba(46, 107, 46, 0.03) 8px, rgba(46, 107, 46, 0.03) 9px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 8px,
+      rgba(46, 107, 46, 0.03) 8px, rgba(46, 107, 46, 0.03) 9px
+    );
+  pointer-events: none;
+}
+
+.valuesHeader {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.valuesHeader h2 {
+  color: var(--green-deep);
+}
+
+.valuesCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.valuesCol {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 40px;
+  border-radius: 2px;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--green-field), var(--green-bright)) 1;
+}
+
+.valuesCol h3 {
+  color: var(--green-deep);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(46, 107, 46, 0.15);
+}
+
+.valuesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.valuesList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: var(--text-mid);
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+/* Grass blade bullet */
+.valuesList li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 3px;
+  height: 18px;
+  background: linear-gradient(to top, var(--green-field), var(--green-lime));
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+/* ─── CTA ─── */
+.cta {
+  padding: 80px 40px;
+  background: var(--warm-white);
+  text-align: center;
+  position: relative;
+}
+
+.cta h2 {
+  color: var(--green-deep);
+  margin-bottom: 16px;
+}
+
+.cta p {
+  color: var(--text-mid);
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+
+@media (max-width: 820px) {
+  .missionGrid,
+  .valuesCols {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .missionSection,
+  .valuesSection {
+    padding: 60px 20px;
+  }
+}
