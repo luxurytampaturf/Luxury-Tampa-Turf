@@ -5,17 +5,23 @@ import styles from './ContactForm.module.css'
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<string[]>([])
 
-  function handleSubmit() {
+  async function handleSubmit() {
     const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value.trim()
-    const email = (document.getElementById('email') as HTMLInputElement)?.value.trim()
-    const phone = (document.getElementById('phone') as HTMLInputElement)?.value.trim()
+    const lastName  = (document.getElementById('lastName')  as HTMLInputElement)?.value.trim()
+    const email     = (document.getElementById('email')     as HTMLInputElement)?.value.trim()
+    const phone     = (document.getElementById('phone')     as HTMLInputElement)?.value.trim()
+    const address   = (document.getElementById('address')   as HTMLInputElement)?.value.trim()
+    const service   = (document.getElementById('service')   as HTMLSelectElement)?.value
+    const message   = (document.getElementById('message')   as HTMLTextAreaElement)?.value.trim()
+    const contact   = (document.getElementById('contactMethod') as HTMLSelectElement)?.value
 
     const missing: string[] = []
     if (!firstName) missing.push('First name')
-    if (!email) missing.push('Email')
-    if (!phone) missing.push('Phone number')
+    if (!email)     missing.push('Email')
+    if (!phone)     missing.push('Phone number')
 
     if (missing.length) {
       setErrors(missing)
@@ -23,7 +29,37 @@ export default function ContactForm() {
     }
 
     setErrors([])
-    setSubmitted(true)
+    setLoading(true)
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '83d9fe20-eb33-4da5-b19e-c74f52921b1f',
+          subject: `New Quote Request — ${firstName} ${lastName}`.trim(),
+          from_name: `${firstName} ${lastName}`.trim(),
+          email,
+          phone,
+          address:           address  || 'Not provided',
+          service:           service  || 'Not specified',
+          message:           message  || 'No additional details',
+          preferred_contact: contact  || 'Not specified',
+        }),
+      })
+
+      const data = await res.json()
+
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setErrors(['Something went wrong. Please try again or call us at (813) 793-2623.'])
+      }
+    } catch {
+      setErrors(['Network error. Please try again or call us at (813) 793-2623.'])
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -61,7 +97,7 @@ export default function ContactForm() {
 
       {errors.length > 0 && (
         <div className={styles.errorBox}>
-          Please fill in: {errors.join(', ')}
+          {errors.join(' ')}
         </div>
       )}
 
@@ -120,8 +156,8 @@ export default function ContactForm() {
         </select>
       </div>
 
-      <button className={styles.submit} onClick={handleSubmit}>
-        Submit Free Quote Request →
+      <button className={styles.submit} onClick={handleSubmit} disabled={loading}>
+        {loading ? 'Sending...' : 'Submit Free Quote Request →'}
       </button>
       <p className={styles.formNote}>100% complimentary · No pressure · No obligation</p>
     </div>

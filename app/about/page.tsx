@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import styles from './about.module.css'
 
@@ -83,6 +84,48 @@ export default function AboutPage() {
                 craftsmanship. Our pricing is straightforward and honest — no hidden fees,
                 no inflated change orders, no cutting corners.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOUNDERS PHOTO */}
+      <section className={styles.foundersSection}>
+        <div className={styles.sectionInner}>
+          <div className={styles.foundersGrid}>
+            <div className={styles.foundersPhoto}>
+              <Image
+                src="/team-photo.jpg"
+                alt="The Luxury Tampa Turf founders"
+                width={900}
+                height={1200}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+              <div className={styles.foundersPhotoOverlay}>
+                <span>The LTT Founders — Tampa, FL</span>
+              </div>
+            </div>
+            <div className={styles.foundersText}>
+              <span className={styles.sectionLabel}>Meet the Team</span>
+              <h2>The Faces Behind the Work</h2>
+              <div className={styles.divider} />
+              <p>
+                We&rsquo;re the founders of Luxury Tampa Turf — two guys from the hardscaping
+                industry who got tired of watching homeowners get taken advantage of. Bad
+                installations, hidden fees, rushed jobs. We knew we could do better.
+              </p>
+              <p>
+                So we built this company from the ground up, rooted in honesty and real
+                craftsmanship. When we show up to your property, we treat it like our own —
+                because that&rsquo;s the only standard we hold ourselves to.
+              </p>
+              <p>
+                Available seven days a week, we&rsquo;re always just a call or text away. Come
+                meet us — we&rsquo;d love to show you what your yard can become.
+              </p>
+              <Link href="/contact" className={styles.btnPrimary}>
+                Get in Touch
+              </Link>
             </div>
           </div>
         </div>

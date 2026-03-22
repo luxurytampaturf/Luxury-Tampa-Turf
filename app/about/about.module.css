@@ -331,3 +331,109 @@
     padding: 60px 20px;
   }
 }
+
+/* ─── FOUNDERS SECTION ─── */
+.foundersSection {
+  padding: 90px 40px;
+  background: linear-gradient(180deg, var(--warm-white) 0%, #ebf4e4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.foundersSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg, transparent, transparent 8px,
+      rgba(46, 107, 46, 0.03) 8px, rgba(46, 107, 46, 0.03) 9px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 8px,
+      rgba(46, 107, 46, 0.03) 8px, rgba(46, 107, 46, 0.03) 9px
+    );
+  pointer-events: none;
+}
+
+.foundersGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.foundersPhoto {
+  position: relative;
+  box-shadow: 0 12px 50px rgba(13, 31, 13, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Green corner accent frame */
+.foundersPhoto::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  bottom: 14px;
+  right: 14px;
+  border: 2px solid rgba(93, 189, 78, 0.4);
+  z-index: 2;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.foundersPhotoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(to top, rgba(13, 31, 13, 0.85) 0%, transparent 100%);
+  color: rgba(200, 240, 176, 0.9);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.foundersText h2 {
+  color: var(--green-deep);
+  margin-bottom: 14px;
+}
+
+.foundersText p {
+  color: var(--text-mid);
+  font-size: 0.98rem;
+  margin-bottom: 18px;
+  line-height: 1.85;
+}
+
+.foundersText .btnPrimary {
+  margin-top: 8px;
+}
+
+@media (max-width: 820px) {
+  .foundersSection {
+    padding: 60px 20px;
+  }
+
+  .foundersGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* On mobile, photo comes second (text first) */
+  .foundersPhoto {
+    order: 2;
+  }
+
+  .foundersText {
+    order: 1;
+  }
+}
