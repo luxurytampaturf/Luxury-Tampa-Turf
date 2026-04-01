@@ -32,7 +32,7 @@ export default function OfferPage() {
 
           {/* Applied offer CTA */}
           <div className={styles.appliedWrap}>
-            <Link href="/contact" className={styles.btnPrimary}>
+            <Link href="/contact?offer=easter250" className={styles.btnPrimary}>
               <span>Claim Your $250 Off</span>
             </Link>
             <div className={styles.appliedBadge}>
@@ -139,7 +139,7 @@ export default function OfferPage() {
           savings before April 15th.
         </p>
         <div className={styles.appliedWrap}>
-          <Link href="/contact" className={styles.btnPrimary}>
+          <Link href="/contact?offer=easter250" className={styles.btnPrimary}>
             <span>Get My Free Quote &amp; Save $250 →</span>
           </Link>
           <div className={styles.appliedBadgeDark}>

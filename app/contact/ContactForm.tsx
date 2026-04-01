@@ -1,12 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './ContactForm.module.css'
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [errors, setErrors] = useState<string[]>([])
+  const [submitted, setSubmitted]       = useState(false)
+  const [loading, setLoading]           = useState(false)
+  const [errors, setErrors]             = useState<string[]>([])
+  const [hasEasterOffer, setHasEasterOffer] = useState(false)
+
+  // Detect ?offer=easter250 in the URL (set after mount to avoid SSR mismatch)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    setHasEasterOffer(params.get('offer') === 'easter250')
+  }, [])
 
   async function handleSubmit() {
     const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value.trim()
@@ -32,20 +39,29 @@ export default function ContactForm() {
     setLoading(true)
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const payload: Record<string, string> = {
+        access_key:        '83d9fe20-eb33-4da5-b19e-c74f52921b1f',
+        subject:           hasEasterOffer
+                             ? `🐣 EASTER DEAL — New Quote from ${firstName} ${lastName}`.trim()
+                             : `New Quote Request — ${firstName} ${lastName}`.trim(),
+        from_name:         `${firstName} ${lastName}`.trim(),
+        email,
+        phone,
+        address:           address  || 'Not provided',
+        service:           service  || 'Not specified',
+        message:           message  || 'No additional details',
+        preferred_contact: contact  || 'Not specified',
+      }
+
+      // Only include the offer field when the discount was applied
+      if (hasEasterOffer) {
+        payload['offer_applied'] = '✅ Easter Special — $250 Off (expires April 15, 2026)'
+      }
+
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: '83d9fe20-eb33-4da5-b19e-c74f52921b1f',
-          subject: `New Quote Request — ${firstName} ${lastName}`.trim(),
-          from_name: `${firstName} ${lastName}`.trim(),
-          email,
-          phone,
-          address:           address  || 'Not provided',
-          service:           service  || 'Not specified',
-          message:           message  || 'No additional details',
-          preferred_contact: contact  || 'Not specified',
-        }),
+        body:    JSON.stringify(payload),
       })
 
       const data = await res.json()
@@ -62,6 +78,7 @@ export default function ContactForm() {
     }
   }
 
+  /* ── Success state ───────────────────────────────────────────────── */
   if (submitted) {
     return (
       <div className={styles.wrap}>
@@ -72,6 +89,14 @@ export default function ContactForm() {
             </svg>
           </div>
           <h3>Thank You!</h3>
+          {hasEasterOffer && (
+            <div className={styles.successOffer}>
+              <svg viewBox="0 0 24 24" fill="currentColor" width={15} height={15}>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              Easter Special — $250 Off locked in
+            </div>
+          )}
           <p>
             We&rsquo;ve received your request and will contact you within{' '}
             <strong>24 hours</strong> to schedule your personalized preview.
@@ -85,8 +110,25 @@ export default function ContactForm() {
     )
   }
 
+  /* ── Form ────────────────────────────────────────────────────────── */
   return (
     <div className={styles.wrap}>
+
+      {/* Easter offer banner — only shown when ?offer=easter250 is present */}
+      {hasEasterOffer && (
+        <div className={styles.offerBanner}>
+          <div className={styles.offerBannerIcon}>
+            <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18}>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+          </div>
+          <div className={styles.offerBannerText}>
+            <strong>Easter Special — $250 Off Applied</strong>
+            <span>Valid on any project 100+ sq ft · Expires April 15, 2026</span>
+          </div>
+        </div>
+      )}
+
       <div className={styles.formHead}>
         <h3>Request a Free Quote</h3>
         <p>
@@ -157,9 +199,20 @@ export default function ContactForm() {
       </div>
 
       <button className={styles.submit} onClick={handleSubmit} disabled={loading}>
-        {loading ? 'Sending...' : 'Submit Free Quote Request →'}
+        {loading
+          ? 'Sending...'
+          : hasEasterOffer
+            ? 'Submit & Claim My $250 Off →'
+            : 'Submit Free Quote Request →'}
       </button>
-      <p className={styles.formNote}>100% complimentary · No pressure · No obligation</p>
+
+      {hasEasterOffer ? (
+        <p className={styles.formNoteOffer}>
+          🐣 $250 Easter discount will be applied to your project
+        </p>
+      ) : (
+        <p className={styles.formNote}>100% complimentary · No pressure · No obligation</p>
+      )}
     </div>
   )
 }

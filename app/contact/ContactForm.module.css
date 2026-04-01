@@ -25,6 +25,86 @@
   pointer-events: none;
 }
 
+/* ─── EASTER OFFER BANNER ─── */
+.offerBanner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(232, 201, 106, 0.08));
+  border: 1.5px solid rgba(201, 168, 76, 0.35);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  animation: bannerSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.offerBannerIcon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--green-field), var(--green-light));
+  border-radius: 50%;
+  color: #fff;
+}
+
+.offerBannerText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.offerBannerText strong {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green-deep);
+  letter-spacing: 0.02em;
+}
+
+.offerBannerText span {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+/* ─── OFFER NOTE BELOW SUBMIT ─── */
+.formNoteOffer {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--green-field);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── SUCCESS OFFER CHIP ─── */
+.successOffer {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, rgba(46, 107, 46, 0.08), rgba(93, 189, 78, 0.12));
+  border: 1px solid rgba(46, 107, 46, 0.22);
+  color: var(--green-field);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 40px;
+  margin: 0 auto 20px;
+}
+
+@keyframes bannerSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .formHead {
   margin-bottom: 32px;
   position: relative;
