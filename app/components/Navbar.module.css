@@ -82,6 +82,97 @@
   color: var(--green-pale);
 }
 
+/* ─── SPECIAL OFFER BUTTON ─── */
+.offerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  padding: 9px 20px;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 2px 12px rgba(201, 168, 76, 0.35),
+    0 0 20px rgba(201, 168, 76, 0.15);
+  animation: offerGlow 2.5s ease-in-out infinite;
+}
+
+.offerBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), #dbb545);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.offerBtn:hover::before {
+  opacity: 1;
+}
+
+.offerBtn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 20px rgba(201, 168, 76, 0.5),
+    0 0 30px rgba(201, 168, 76, 0.25);
+}
+
+.offerBtnActive {
+  box-shadow:
+    0 2px 16px rgba(201, 168, 76, 0.5),
+    0 0 24px rgba(201, 168, 76, 0.2),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.25);
+}
+
+.offerPulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.offerPulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 1;
+}
+
+.offerPulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.offerLabel {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes offerGlow {
+  0%, 100% { box-shadow: 0 2px 12px rgba(201, 168, 76, 0.35), 0 0 20px rgba(201, 168, 76, 0.15); }
+  50%      { box-shadow: 0 2px 18px rgba(201, 168, 76, 0.5),  0 0 30px rgba(201, 168, 76, 0.25); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.5; }
+  50%      { transform: scale(1.8); opacity: 0; }
+}
+
 @media (max-width: 768px) {
   .nav {
     padding: 0 20px;
@@ -95,6 +186,17 @@
   .link {
     font-size: 0.72rem;
   }
+
+  .offerBtn {
+    font-size: 0.62rem;
+    padding: 7px 14px;
+    gap: 6px;
+  }
+
+  .offerPulse {
+    width: 6px;
+    height: 6px;
+  }
 }
 
 /* ─── MOBILE OPTIMIZATIONS ─── */
@@ -105,11 +207,17 @@
   }
 
   .links {
-    gap: 16px;
+    gap: 12px;
   }
 
   .link {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
+  }
+
+  .offerBtn {
+    font-size: 0.56rem;
+    padding: 6px 10px;
+    letter-spacing: 0.08em;
   }
 }

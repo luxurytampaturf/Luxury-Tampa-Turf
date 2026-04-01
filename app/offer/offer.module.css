@@ -59,6 +59,57 @@
 .btnPrimary span { position: relative; z-index: 1; }
 
 
+/* ─── "OFFER APPLIED" BADGE ─── */
+.appliedWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.appliedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--green-lime);
+  background: rgba(126, 217, 87, 0.1);
+  border: 1px solid rgba(126, 217, 87, 0.3);
+  padding: 8px 18px;
+  border-radius: 40px;
+  animation: badgeFadeIn 0.6s ease-out 0.4s both;
+}
+
+.appliedBadge svg {
+  flex-shrink: 0;
+  color: var(--green-lime);
+}
+
+.appliedBadgeDark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--green-lime);
+  background: rgba(126, 217, 87, 0.08);
+  border: 1px solid rgba(126, 217, 87, 0.25);
+  padding: 8px 18px;
+  border-radius: 40px;
+  animation: badgeFadeIn 0.6s ease-out 0.4s both;
+}
+
+.appliedBadgeDark svg {
+  flex-shrink: 0;
+  color: var(--green-lime);
+}
+
+
 /* ─── HERO ─── */
 .hero {
   position: relative;
@@ -302,7 +353,7 @@
 }
 
 .termsList li::before {
-  content: '·';
+  content: '\00B7';
   position: absolute;
   left: 4px;
   color: var(--green-light);
@@ -354,6 +405,11 @@
   50%       { transform: translateY(-8px); }
 }
 
+@keyframes badgeFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
@@ -379,5 +435,16 @@
 
   .ctaStrip {
     padding: 72px 20px;
+  }
+
+  .btnPrimary {
+    padding: 16px 28px;
+    font-size: 0.75rem;
+  }
+
+  .appliedBadge,
+  .appliedBadgeDark {
+    font-size: 0.7rem;
+    padding: 6px 14px;
   }
 }

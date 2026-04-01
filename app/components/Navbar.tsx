@@ -9,7 +9,6 @@ import styles from './Navbar.module.css'
 const links = [
   { href: '/',        label: 'Home'    },
   { href: '/about',   label: 'About'   },
-  { href: '/offer',   label: 'Easter Special' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -46,6 +45,15 @@ export default function Navbar() {
             </Link>
           </li>
         ))}
+        <li>
+          <Link
+            href="/offer"
+            className={`${styles.offerBtn} ${pathname === '/offer' ? styles.offerBtnActive : ''}`}
+          >
+            <span className={styles.offerPulse} />
+            <span className={styles.offerLabel}>Easter Special — $250 Off</span>
+          </Link>
+        </li>
       </ul>
     </nav>
   )
