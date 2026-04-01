@@ -1,11 +1,15 @@
+/* ════════════════════════════════════════════
+   NAV BAR
+════════════════════════════════════════════ */
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   background: rgba(13, 31, 13, 0.92);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(93, 189, 78, 0.15);
   padding: 0 40px;
   display: flex;
@@ -15,6 +19,7 @@
   transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* green underline glow on scroll */
 .nav::after {
   content: '';
   position: absolute;
@@ -22,29 +27,43 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(93, 189, 78, 0.4), var(--green-bright), rgba(93, 189, 78, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(93, 189, 78, 0.4),
+    var(--green-bright),
+    rgba(93, 189, 78, 0.4),
+    transparent
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .scrolled {
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   background: rgba(13, 31, 13, 0.97);
 }
 
-.scrolled::after {
-  opacity: 1;
+.scrolled::after { opacity: 1; }
+
+/* When drawer is open, keep nav fully opaque */
+.navOpen {
+  background: rgba(13, 31, 13, 0.98) !important;
 }
 
-.logo {
+.logo { display: flex; align-items: center; }
+
+
+/* ════════════════════════════════════════════
+   DESKTOP LINKS  (hidden on mobile)
+════════════════════════════════════════════ */
+.desktopLinks {
   display: flex;
   align-items: center;
-}
-
-.links {
-  display: flex;
   gap: 40px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .link {
@@ -58,6 +77,7 @@
   position: relative;
   padding-bottom: 4px;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .link::after {
@@ -73,16 +93,13 @@
 }
 
 .link:hover::after,
-.active::after {
-  width: 100%;
-}
+.active::after { width: 100%; }
 
 .link:hover,
-.active {
-  color: var(--green-pale);
-}
+.active { color: var(--green-pale); }
 
-/* ─── SPECIAL OFFER BUTTON ─── */
+
+/* ─── Easter offer pill ─── */
 .offerBtn {
   display: inline-flex;
   align-items: center;
@@ -90,7 +107,7 @@
   font-family: 'Jost', sans-serif;
   font-weight: 600;
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;
@@ -99,10 +116,9 @@
   border-radius: 3px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow:
-    0 2px 12px rgba(201, 168, 76, 0.35),
-    0 0 20px rgba(201, 168, 76, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(201, 168, 76, 0.35), 0 0 20px rgba(201, 168, 76, 0.15);
   animation: offerGlow 2.5s ease-in-out infinite;
 }
 
@@ -115,31 +131,25 @@
   transition: opacity 0.3s ease;
 }
 
-.offerBtn:hover::before {
-  opacity: 1;
-}
-
+.offerBtn:hover::before { opacity: 1; }
 .offerBtn:hover {
   transform: translateY(-1px);
-  box-shadow:
-    0 4px 20px rgba(201, 168, 76, 0.5),
-    0 0 30px rgba(201, 168, 76, 0.25);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.5), 0 0 30px rgba(201, 168, 76, 0.25);
 }
 
 .offerBtnActive {
   box-shadow:
     0 2px 16px rgba(201, 168, 76, 0.5),
-    0 0 24px rgba(201, 168, 76, 0.2),
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.25);
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.2);
 }
 
+/* Live dot */
 .offerPulse {
   position: relative;
   width: 8px;
   height: 8px;
   flex-shrink: 0;
 }
-
 .offerPulse::before {
   content: '';
   position: absolute;
@@ -148,7 +158,6 @@
   background: #fff;
   z-index: 1;
 }
-
 .offerPulse::after {
   content: '';
   position: absolute;
@@ -158,11 +167,234 @@
   animation: pulse 1.8s ease-in-out infinite;
 }
 
-.offerLabel {
-  position: relative;
-  z-index: 1;
+.offerLabel { position: relative; z-index: 1; }
+
+
+/* ════════════════════════════════════════════
+   HAMBURGER BUTTON  (mobile only)
+════════════════════════════════════════════ */
+.burger {
+  display: none;          /* hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: rgba(46, 107, 46, 0.15);
+  border: 1px solid rgba(93, 189, 78, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
 }
 
+.burger:hover {
+  background: rgba(46, 107, 46, 0.28);
+  border-color: rgba(93, 189, 78, 0.4);
+}
+
+.burgerLine {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(200, 240, 176, 0.85);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity   0.3s ease,
+              width     0.3s ease;
+  transform-origin: center;
+}
+
+/* X state */
+.burgerOpen .burgerLine:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burgerOpen .burgerLine:nth-child(2) { opacity: 0; width: 0; }
+.burgerOpen .burgerLine:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ════════════════════════════════════════════
+   MOBILE DRAWER
+════════════════════════════════════════════ */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  pointer-events: none;
+}
+
+.drawerOpen { pointer-events: all; }
+
+/* Semi-transparent backdrop */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 14, 5, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.drawerOpen .backdrop { opacity: 1; }
+
+/* Slide-down panel */
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(10, 24, 10, 0.99) 0%, rgba(13, 31, 13, 0.98) 100%);
+  border-bottom: 1px solid rgba(93, 189, 78, 0.18);
+  padding: 100px 28px 36px;   /* top padding clears the fixed navbar */
+  transform: translateY(-100%);
+  transition: transform 0.42s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+.drawerOpen .panel { transform: translateY(0); }
+
+/* Nav links in drawer */
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileLink {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+  color: rgba(200, 240, 176, 0.7);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(93, 189, 78, 0.08);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: block;
+}
+
+.mobileLink:hover,
+.mobileLinkActive {
+  color: var(--green-pale);
+  padding-left: 8px;
+}
+
+.mobileLinkActive {
+  color: var(--green-lime);
+}
+
+/* Easter offer in drawer */
+.mobileOfferBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  padding: 16px 22px;
+  border-radius: 4px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+}
+
+.mobileOfferBtn:hover { opacity: 0.92; }
+.mobileOfferBtnActive { box-shadow: 0 4px 24px rgba(201, 168, 76, 0.5); }
+
+/* Get a free quote CTA */
+.mobileCta {
+  display: block;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green-field), var(--green-light));
+  padding: 17px 24px;
+  border-radius: 3px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 20px rgba(46, 107, 46, 0.3);
+}
+
+.mobileCta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Phone + hours at the bottom of the drawer */
+.drawerFooter {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(93, 189, 78, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.drawerFooter a {
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--green-bright);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.drawerFooter a:hover { color: var(--green-lime); }
+
+.drawerFooter span {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(200, 240, 176, 0.35);
+  letter-spacing: 0.04em;
+}
+
+
+/* ════════════════════════════════════════════
+   BREAKPOINTS
+════════════════════════════════════════════ */
+
+/* Tablet — show hamburger, hide desktop links */
+@media (max-width: 860px) {
+  .nav {
+    padding: 0 24px;
+    height: 72px;
+  }
+
+  .desktopLinks { display: none; }
+  .burger       { display: flex; }
+}
+
+/* Large phone */
+@media (max-width: 480px) {
+  .nav {
+    padding: 0 16px;
+    height: 64px;
+  }
+
+  .panel {
+    padding-top: 88px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mobileLink { font-size: 1.25rem; }
+}
+
+
+/* ════════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════════ */
 @keyframes offerGlow {
   0%, 100% { box-shadow: 0 2px 12px rgba(201, 168, 76, 0.35), 0 0 20px rgba(201, 168, 76, 0.15); }
   50%      { box-shadow: 0 2px 18px rgba(201, 168, 76, 0.5),  0 0 30px rgba(201, 168, 76, 0.25); }
@@ -170,54 +402,5 @@
 
 @keyframes pulse {
   0%, 100% { transform: scale(1);   opacity: 0.5; }
-  50%      { transform: scale(1.8); opacity: 0; }
-}
-
-@media (max-width: 768px) {
-  .nav {
-    padding: 0 20px;
-    height: 68px;
-  }
-
-  .links {
-    gap: 20px;
-  }
-
-  .link {
-    font-size: 0.72rem;
-  }
-
-  .offerBtn {
-    font-size: 0.62rem;
-    padding: 7px 14px;
-    gap: 6px;
-  }
-
-  .offerPulse {
-    width: 6px;
-    height: 6px;
-  }
-}
-
-/* ─── MOBILE OPTIMIZATIONS ─── */
-@media (max-width: 480px) {
-  .nav {
-    padding: 0 16px;
-    height: 62px;
-  }
-
-  .links {
-    gap: 12px;
-  }
-
-  .link {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-  }
-
-  .offerBtn {
-    font-size: 0.56rem;
-    padding: 6px 10px;
-    letter-spacing: 0.08em;
-  }
+  50%      { transform: scale(1.8); opacity: 0;   }
 }
