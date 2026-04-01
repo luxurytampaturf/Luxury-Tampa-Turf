@@ -9,6 +9,7 @@ import styles from './Navbar.module.css'
 const links = [
   { href: '/',        label: 'Home'    },
   { href: '/about',   label: 'About'   },
+  { href: '/offer',   label: 'Easter Special' },
   { href: '/contact', label: 'Contact' },
 ]
 
