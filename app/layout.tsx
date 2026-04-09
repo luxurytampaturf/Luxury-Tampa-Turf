@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Navbar from '@/app/components/Navbar'
 import Footer from '@/app/components/Footer'
@@ -63,6 +64,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <SpeedInsights />
+        <Analytics />
 
         {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
