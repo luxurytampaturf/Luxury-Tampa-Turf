@@ -203,8 +203,8 @@ export default function ContactForm({ forceOffer }: { forceOffer?: boolean } = {
         {loading
           ? 'Sending...'
           : hasEasterOffer
-            ? 'Submit & Claim My $500 Off →'
-            : 'Submit Free Quote Request →'}
+            ? 'Submit & Claim My $500 Off \u2192'
+            : 'Submit Free Quote Request \u2192'}
       </button>
 
       {hasEasterOffer ? (

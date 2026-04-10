@@ -154,4 +154,4 @@ export default function OfferPage() {
         </p>
         <div className={styles.appliedWrap}>
           <a href="#claim-form" className={styles.btnPrimary}>
-            <span>Get My Free Quote &amp; Save $500 →
+            <span>Get My Free Quote &amp; Save $500 &rarr;</span>
