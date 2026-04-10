@@ -448,3 +448,30 @@
     padding: 6px 14px;
   }
 }
+
+/* ─── EMBEDDED FORM SECTION ─── */
+.formSection {
+  background: var(--bg-dark, #0a0a0a);
+  padding: 96px 0 80px;
+  scroll-margin-top: 80px;
+}
+
+.formIntro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.formIntro h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #fff;
+  margin: 12px 0 16px;
+}
+
+.formIntro .divider {
+  margin: 0 auto;
+}
+
+.formWrap {
+  max-width: 640px;
+  margin: 0 auto;
+}

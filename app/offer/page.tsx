@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import styles from './offer.module.css'
+import ContactForm from '@/app/contact/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Easter Special — $250 Off Premium Turf Installation',
@@ -32,9 +32,9 @@ export default function OfferPage() {
 
           {/* Applied offer CTA */}
           <div className={styles.appliedWrap}>
-            <Link href="/contact?offer=easter250" className={styles.btnPrimary}>
+            <a href="#claim-form" className={styles.btnPrimary}>
               <span>Claim Your $250 Off</span>
-            </Link>
+            </a>
             <div className={styles.appliedBadge}>
               <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
@@ -131,6 +131,20 @@ export default function OfferPage() {
         </div>
       </section>
 
+      {/* EMBEDDED FORM */}
+      <section className={styles.formSection} id="claim-form">
+        <div className={styles.sectionInner}>
+          <div className={styles.formIntro}>
+            <span className={styles.sectionLabel}>Claim Your Discount</span>
+            <h2>Get Your Free Quote &amp; Lock In $250 Off</h2>
+            <div className={styles.divider} />
+          </div>
+          <div className={styles.formWrap}>
+            <ContactForm forceOffer={true} />
+          </div>
+        </div>
+      </section>
+
       {/* CTA STRIP */}
       <section className={styles.ctaStrip}>
         <h2>Don&rsquo;t Miss Out — This Offer Ends Soon</h2>
@@ -139,9 +153,9 @@ export default function OfferPage() {
           savings before April 15th.
         </p>
         <div className={styles.appliedWrap}>
-          <Link href="/contact?offer=easter250" className={styles.btnPrimary}>
+          <a href="#claim-form" className={styles.btnPrimary}>
             <span>Get My Free Quote &amp; Save $250 →</span>
-          </Link>
+          </a>
           <div className={styles.appliedBadgeDark}>
             <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />

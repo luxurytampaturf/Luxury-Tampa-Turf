@@ -3,17 +3,18 @@
 import { useState, useEffect } from 'react'
 import styles from './ContactForm.module.css'
 
-export default function ContactForm() {
+export default function ContactForm({ forceOffer }: { forceOffer?: boolean } = {}) {
   const [submitted, setSubmitted]       = useState(false)
   const [loading, setLoading]           = useState(false)
   const [errors, setErrors]             = useState<string[]>([])
-  const [hasEasterOffer, setHasEasterOffer] = useState(false)
+  const [hasEasterOffer, setHasEasterOffer] = useState(forceOffer ?? false)
 
   // Detect ?offer=easter250 in the URL (set after mount to avoid SSR mismatch)
   useEffect(() => {
+    if (forceOffer) return
     const params = new URLSearchParams(window.location.search)
     setHasEasterOffer(params.get('offer') === 'easter250')
-  }, [])
+  }, [forceOffer])
 
   async function handleSubmit() {
     const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value.trim()
