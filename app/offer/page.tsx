@@ -3,7 +3,7 @@ import styles from './offer.module.css'
 import ContactForm from '@/app/contact/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Easter Special — $500 Off Premium Turf Installation',
+  title: 'Easter Special - $500 Off Premium Turf Installation',
   description:
     'Limited-time Easter offer: Save $500 on any artificial turf project over 200 sq ft. Offer expires May 15, 2026.',
 }
@@ -39,7 +39,7 @@ export default function OfferPage() {
               <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
               </svg>
-              Offer Applied — $500 Off Your Quote
+              Offer Applied &mdash; $500 Off Your Quote
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function OfferPage() {
       <section className={styles.detailsSection}>
         <div className={styles.sectionInner}>
           <div className={styles.detailsGrid}>
-            {/* Left — Egg / Easter card */}
+            {/* Left - Egg / Easter card */}
             <div className={styles.easterCard}>
               <div className={styles.eggWrap}>
                 <svg className={styles.egg} viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@ export default function OfferPage() {
               </div>
             </div>
 
-            {/* Right — Details */}
+            {/* Right - Details */}
             <div className={styles.detailsText}>
               <span className={styles.sectionLabel}>How It Works</span>
               <h2>Your Easter Savings</h2>
@@ -95,7 +95,7 @@ export default function OfferPage() {
                     <h3>Visualize Your New Yard</h3>
                     <p>
                       See exactly how your space will look using our proprietary
-                      real-time visualization software — before any work begins.
+                      real-time visualization software &mdash; before any work begins.
                     </p>
                   </div>
                 </div>
@@ -147,20 +147,20 @@ export default function OfferPage() {
 
       {/* CTA STRIP */}
       <section className={styles.ctaStrip}>
-        <h2>Don&rsquo;t Miss Out — This Offer Ends Soon</h2>
+        <h2>Don&rsquo;t Miss Out &mdash; This Offer Ends Soon</h2>
         <p>
           Spring is the perfect time to transform your yard. Lock in your $500
           savings before May 15th.
         </p>
         <div className={styles.appliedWrap}>
           <a href="#claim-form" className={styles.btnPrimary}>
-            <span>Get My Free Quote &amp; Save $500 &rarr;</span>
+            <span>Get My Free Quote &amp; Save $500</span>
           </a>
           <div className={styles.appliedBadgeDark}>
             <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
-            Offer Applied — $500 Off Your Quote
+            Offer Applied &mdash; $500 Off Your Quote
           </div>
         </div>
         <div className={styles.ctaExpiry}>Offer expires {expirationDate}</div>
