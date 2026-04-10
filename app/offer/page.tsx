@@ -3,13 +3,13 @@ import styles from './offer.module.css'
 import ContactForm from '@/app/contact/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Easter Special — $250 Off Premium Turf Installation',
+  title: 'Easter Special — $500 Off Premium Turf Installation',
   description:
-    'Limited-time Easter offer: Save $250 on any artificial turf project over 100 sq ft. Offer expires April 15, 2026.',
+    'Limited-time Easter offer: Save $500 on any artificial turf project over 200 sq ft. Offer expires May 15, 2026.',
 }
 
 export default function OfferPage() {
-  const expirationDate = 'April 15, 2026'
+  const expirationDate = 'May 15, 2026'
 
   return (
     <>
@@ -18,10 +18,10 @@ export default function OfferPage() {
         <div className={styles.heroContent}>
           <span className={styles.badge}>Limited-Time Easter Offer</span>
           <h1 className={styles.heroTitle}>
-            Save <em className={styles.amount}>$250</em> This Easter
+            Save <em className={styles.amount}>$500</em> This Easter
           </h1>
           <p className={styles.heroSub}>
-            On any artificial turf project over 100+ sq ft
+            On any artificial turf project over 200+ sq ft
           </p>
           <div className={styles.expiryBadge}>
             <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18}>
@@ -33,13 +33,13 @@ export default function OfferPage() {
           {/* Applied offer CTA */}
           <div className={styles.appliedWrap}>
             <a href="#claim-form" className={styles.btnPrimary}>
-              <span>Claim Your $250 Off</span>
+              <span>Claim Your $500 Off</span>
             </a>
             <div className={styles.appliedBadge}>
               <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
               </svg>
-              Offer Applied — $250 Off Your Quote
+              Offer Applied — $500 Off Your Quote
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function OfferPage() {
                 </svg>
               </div>
               <div className={styles.savingsTag}>
-                <span className={styles.savingsAmount}>$250</span>
+                <span className={styles.savingsAmount}>$500</span>
                 <span className={styles.savingsLabel}>OFF</span>
               </div>
             </div>
@@ -102,10 +102,10 @@ export default function OfferPage() {
                 <div className={styles.step}>
                   <div className={styles.stepNum}>3</div>
                   <div>
-                    <h3>Save $250 at Booking</h3>
+                    <h3>Save $500 at Booking</h3>
                     <p>
                       Mention this Easter offer when you book your project of
-                      100+ sq ft and we&rsquo;ll apply your $250 discount automatically.
+                      200+ sq ft and we&rsquo;ll apply your $500 discount automatically.
                     </p>
                   </div>
                 </div>
@@ -121,11 +121,11 @@ export default function OfferPage() {
           <div className={styles.termsCard}>
             <h3>Offer Details</h3>
             <ul className={styles.termsList}>
-              <li>$250 off any artificial turf installation project of 100 sq ft or more</li>
+              <li>$500 off any artificial turf installation project of 200 sq ft or more</li>
               <li>Valid for new bookings only</li>
               <li>Must mention this offer at time of booking</li>
               <li>Cannot be combined with other promotions</li>
-              <li>Offer expires April 15, 2026</li>
+              <li>Offer expires May 15, 2026</li>
             </ul>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function OfferPage() {
         <div className={styles.sectionInner}>
           <div className={styles.formIntro}>
             <span className={styles.sectionLabel}>Claim Your Discount</span>
-            <h2>Get Your Free Quote &amp; Lock In $250 Off</h2>
+            <h2>Get Your Free Quote &amp; Lock In $500 Off</h2>
             <div className={styles.divider} />
           </div>
           <div className={styles.formWrap}>
@@ -149,22 +149,9 @@ export default function OfferPage() {
       <section className={styles.ctaStrip}>
         <h2>Don&rsquo;t Miss Out — This Offer Ends Soon</h2>
         <p>
-          Spring is the perfect time to transform your yard. Lock in your $250
-          savings before April 15th.
+          Spring is the perfect time to transform your yard. Lock in your $500
+          savings before May 15th.
         </p>
         <div className={styles.appliedWrap}>
           <a href="#claim-form" className={styles.btnPrimary}>
-            <span>Get My Free Quote &amp; Save $250 →</span>
-          </a>
-          <div className={styles.appliedBadgeDark}>
-            <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14}>
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-            </svg>
-            Offer Applied — $250 Off Your Quote
-          </div>
-        </div>
-        <div className={styles.ctaExpiry}>Offer expires {expirationDate}</div>
-      </section>
-    </>
-  )
-}
+            <span>Get My Free Quote &amp; Save $500 →

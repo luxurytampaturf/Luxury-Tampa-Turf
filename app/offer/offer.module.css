@@ -316,49 +316,47 @@
 
 /* ─── TERMS ─── */
 .termsSection {
-  padding: 0 24px 80px;
+  padding: 0 24px 60px;
   background: var(--warm-white);
 }
 
 .termsCard {
   max-width: 700px;
   margin: 0 auto;
-  background: rgba(13, 31, 13, 0.03);
-  border: 1px solid rgba(13, 31, 13, 0.08);
-  border-radius: 8px;
-  padding: 36px 44px;
+  background: transparent;
+  border-top: 1px solid rgba(13, 31, 13, 0.1);
+  padding: 20px 0 0;
 }
 
 .termsCard h3 {
   font-family: 'Jost', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-light);
-  margin-bottom: 16px;
+  opacity: 0.5;
+  margin-bottom: 8px;
 }
 
 .termsList {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
 }
 
 .termsList li {
-  position: relative;
-  padding-left: 20px;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: var(--text-mid);
+  opacity: 0.55;
   line-height: 1.8;
+  letter-spacing: 0.01em;
 }
 
 .termsList li::before {
-  content: '\00B7';
-  position: absolute;
-  left: 4px;
-  color: var(--green-light);
-  font-weight: 700;
-  font-size: 1.2rem;
+  content: none;
 }
 
 
